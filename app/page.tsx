@@ -34,6 +34,7 @@ export default function HomePage() {
             <a href="#screens" className="hover:text-blue-700">Screens</a>
             <a href="#pricing" className="hover:text-blue-700">Pricing</a>
             <a href="#faq" className="hover:text-blue-700">FAQ</a>
+            <Link href="/contact" className="hover:text-blue-700">Contact</Link>
           </nav>
           <div className="flex items-center gap-3">
             <a className="hidden sm:inline px-4 py-2 rounded-lg border hover:bg-gray-50" href={`https://${BRAND.app}`}>
@@ -244,17 +245,33 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* Footer */}
+      {/* Footer with quick links including Contact */}
       <footer className="border-t bg-white">
-        <Container className="py-8 text-sm text-gray-600 flex flex-col md:flex-row gap-3 md:items-center md:justify-between">
-          <div className="flex items-center gap-2">
+        <Container className="py-8 text-sm text-gray-600 grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Branding */}
+          <div className="flex items-start gap-2">
             <Image src="/logo-32.png" alt="TradePricer logo" width={20} height={20} />
-            <span>© {new Date().getFullYear()} {BRAND.name}. All rights reserved.</span>
+            <div>
+              <p>© {new Date().getFullYear()} {BRAND.name}. All rights reserved.</p>
+              <p className="mt-1 text-gray-500">Smart quoting and job management for trades.</p>
+            </div>
           </div>
-          <div className="flex items-center gap-4">
-            <Link href="/privacy" className="hover:text-gray-900">Privacy</Link>
-            <Link href="/terms" className="hover:text-gray-900">Terms</Link>
-            <a href={`https://${BRAND.app}`} className="hover:text-gray-900">Sign in</a>
+
+          {/* Quick Links */}
+          <div>
+            <h3 className="text-gray-800 font-semibold mb-3">Quick links</h3>
+            <ul className="space-y-2">
+              <li><Link href="/privacy" className="hover:text-gray-900">Privacy Policy</Link></li>
+              <li><Link href="/terms" className="hover:text-gray-900">Terms of Service</Link></li>
+              <li><Link href="/contact" className="hover:text-gray-900">Contact</Link></li>
+            </ul>
+          </div>
+
+          {/* Contact info */}
+          <div>
+            <h3 className="text-gray-800 font-semibold mb-3">Contact</h3>
+            <p>Email: <a className="text-blue-600 hover:text-blue-700" href="mailto:email@tradepricer.ai">email@tradepricer.ai</a></p>
+            <p className="mt-1">Phone: Coming soon</p>
           </div>
         </Container>
       </footer>
@@ -331,5 +348,3 @@ function Faq({ q, a }: { q: string; a: string }) {
     </details>
   );
 }
-
-
