@@ -1,433 +1,372 @@
-// app/page.tsx
-import Link from "next/link";
-import Image from "next/image";
-import "./globals.css";
-
 const BRAND = {
-  name: "TradePricer",
-  app: "app.tradepricer.ai",
+  name: "TradePricer",
+  app: "app.tradepricer.ai",
 };
 
-// tiny helper to avoid repeating max width and padding
+// A tiny helper component to keep sections centered and padded consistently.
 function Container({
-  children,
-  className = "",
+  children,
+  className = "",
 }: {
-  children: React.ReactNode;
-  className?: string;
+  children: React.ReactNode;
+  className?: string;
 }) {
-  return <div className={`max-w-7xl mx-auto px-6 ${className}`}>{children}</div>;
+  return <div className={`max-w-7xl mx-auto px-6 ${className}`}>{children}</div>;
 }
 
 export default function HomePage() {
-  return (
-    <main className="min-h-screen bg-white text-gray-900">
-      {/* Header */}
-      <header className="sticky top-0 z-40 bg-white/80 backdrop-blur-sm border-b">
-        <Container className="py-3 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <Image src="/logo-32.png" alt="TradePricer logo" width={32} height={32} priority />
-            <span className="font-semibold">{BRAND.name}</span>
-          </div>
-          <nav className="hidden md:flex items-center gap-6 text-sm">
-            <a href="#features" className="hover:text-blue-700">Features</a>
-            <a href="#how-it-works" className="hover:text-blue-700">How It Works</a>
-            <a href="#pricing" className="hover:text-blue-700">Pricing</a>
-            <a href="#faq" className="hover:text-blue-700">FAQ</a>
-            <Link href="/contact" className="hover:text-blue-700">Contact</Link>
-          </nav>
-          <div className="flex items-center gap-3">
-            <a className="hidden sm:inline px-4 py-2 rounded-lg border text-sm hover:bg-gray-50" href={`https://${BRAND.app}`}>
-              Sign in
-            </a>
-            <a className="px-4 py-2 rounded-lg bg-blue-600 text-white text-sm font-semibold hover:bg-blue-700" href={`https://${BRAND.app}/Signup`}>
-              Start for free
-            </a>
-          </div>
-        </Container>
-      </header>
+  return (
+    <main className="min-h-screen bg-white text-gray-900 font-sans">
+      {/* Header */}
+      <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-lg border-b border-gray-200">
+        <Container className="py-3 flex items-center justify-between">
+          <a href="/" className="flex items-center gap-3">
+            <img src="https://placehold.co/32x32/3b82f6/white?text=TP" alt="TradePricer logo" width={32} height={32} className="rounded-md" />
+            <span className="font-semibold">{BRAND.name}</span>
+          </a>
+          <nav className="hidden md:flex items-center gap-6 text-sm">
+            <a href="#how-it-works" className="hover:text-blue-700 transition-colors">How it works</a>
+            <a href="#features" className="hover:text-blue-700 transition-colors">Features</a>
+            <a href="#pricing" className="hover:text-blue-700 transition-colors">Pricing</a>
+            <a href="#faq" className="hover:text-blue-700 transition-colors">FAQ</a>
+            <a href="/contact" className="hover:text-blue-700 transition-colors">Contact</a>
+          </nav>
+          <div className="flex items-center gap-3">
+            <a className="hidden sm:inline px-4 py-2 rounded-lg border text-sm font-medium hover:bg-gray-50 transition-colors" href={`https://${BRAND.app}`}>
+              Sign in
+            </a>
+            <a className="px-4 py-2 rounded-lg bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 transition-colors" href={`https://${BRAND.app}/Signup`}>
+              Start free
+            </a>
+          </div>
+        </Container>
+      </header>
 
-      {/* REVISED: Hero section with punchier, benefit-focused copy */}
-      <section className="bg-gradient-to-br from-blue-50 to-indigo-50">
-        <Container className="py-20 md:py-28 grid md:grid-cols-2 gap-10 items-center">
-          <div>
-            <div className="inline-flex items-center gap-2 rounded-full bg-blue-100 px-3 py-1 text-blue-800 text-sm font-semibold">
-              <SparkleIcon /> New: AI quotes from drawings
-            </div>
-            <h1 className="mt-4 text-4xl md:text-5xl font-extrabold tracking-tight">
-              AI Quoting & Job Management for Trades
-            </h1>
-            <p className="mt-4 text-lg text-gray-700">
-              Win more work, manage jobs effortlessly, and get paid faster. Go from a PDF drawing or a simple brief to a professional, profitable quote in minutes.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a className="px-5 py-3 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700" href={`https://${BRAND.app}/Signup`}>
-                Start Your Free Trial
-              </a>
-              <a className="px-5 py-3 rounded-lg border bg-white/50 hover:bg-white" href="#how-it-works">
-                See How It Works
-              </a>
-            </div>
-            <p className="mt-3 text-sm text-gray-500">No credit card required. Cancel any time.</p>
-            <ul className="mt-6 grid sm:grid-cols-2 gap-x-6 gap-y-3 text-sm text-gray-700">
-              <li className="flex gap-2"><Check /> Instantly price jobs from drawings</li>
-              <li className="flex gap-2"><Check /> Manage profit margin in real-time</li>
-              <li className="flex gap-2"><Check /> Professional certificates & e-signatures</li>
-              <li className="flex gap-2"><Check /> Customer portal for payments & updates</li>
-            </ul>
-          </div>
+      {/* Hero Section */}
+      <section className="bg-gradient-to-br from-blue-50 to-indigo-50">
+        <Container className="py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center">
+          <div>
+            <div className="inline-flex items-center gap-2 rounded-full bg-blue-100 px-3 py-1 text-blue-800 text-sm font-medium">
+              New: AI quotes from drawings
+            </div>
+            <h1 className="mt-4 text-4xl md:text-5xl font-extrabold tracking-tight">
+              Quote jobs with AI, manage work, and get paid faster
+            </h1>
+            <p className="mt-4 text-lg text-gray-700">
+              Upload a PDF drawing or describe the scope. TradePricer builds a professional quote
+              using your staff day rates and realistic materials. Send it, take a deposit, and schedule the job.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <a className="px-5 py-3 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-colors" href={`https://${BRAND.app}/Signup`}>
+                Start free
+              </a>
+              <a className="px-5 py-3 rounded-lg border bg-white hover:bg-gray-50 transition-colors" href="#how-it-works">
+                Watch demo
+              </a>
+            </div>
+            <p className="mt-2 text-sm text-gray-500">No card required. Cancel any time.</p>
+          </div>
+          <div className="relative">
+            <div className="rounded-2xl border bg-white shadow-lg overflow-hidden">
+              <img
+                src="https://placehold.co/1200x800/e0e7ff/334155?text=App+Screenshot"
+                alt="Quote and margin view"
+                width={1200}
+                height={800}
+                className="w-full h-auto"
+              />
+            </div>
+          </div>
+        </Container>
+      </section>
 
-          <div className="relative">
-            <div className="rounded-2xl border bg-white shadow-lg overflow-hidden">
-              <Image
-                src="/landing-hero-mock.png"
-                alt="Quote and margin view"
-                width={1200}
-                height={800}
-                className="w-full h-auto"
-                priority
-              />
-            </div>
-          </div>
-        </Container>
-      </section>
+      {/* Social Proof Bar */}
+      <section>
+        <Container className="py-8">
+          <div className="text-center">
+            <p className="text-lg text-gray-700">
+              Built for trades: <span className="font-semibold text-gray-900">plumbing, heating, electrical, plastering, roofing, landscaping</span> and more.
+            </p>
+          </div>
+        </Container>
+      </section>
 
-      {/* NEW: Testimonials section for social proof */}
-      <section>
-        <Container className="py-12 md:py-16">
-          <h2 className="text-3xl font-bold text-center">Trusted by hundreds of trade professionals</h2>
-          <p className="text-gray-700 text-center mt-2">From sole traders to growing firms, TradePricer is the secret weapon.</p>
-          <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <Testimonial
-              quote="The AI quoting is a game-changer. I priced up a full rewire from architect's drawings in 20 minutes instead of 3 hours. Won the job the same day."
-              name="John P."
-              title="Director, SparkRight Electrics"
-            />
-            <Testimonial
-              quote="Clients love the portal. They accept the quote, pay the deposit, and see photos all in one place. Makes us look so much more professional."
-              name="Sarah K."
-              title="Owner, SK Plumbing & Heating"
-            />
-            <Testimonial
-              quote="Finally, all our job info isn't scattered across WhatsApp and notebooks. The site diary has already saved us from a dispute with a tricky customer."
-              name="Mike D."
-              title="Foreman, BuildWell Construction"
-            />
-          </div>
-        </Container>
-      </section>
-      
-      {/* NEW: How it Works section to explain the AI process */}
-      <section id="how-it-works" className="scroll-mt-24 bg-gray-50 border-y">
-        <Container className="py-12 md:py-16">
-            <h2 className="text-3xl font-bold text-center">From Plan to Paid in 3 Simple Steps</h2>
-            <p className="text-gray-700 text-center mt-2">Spend less time on paperwork and more time on the tools.</p>
-            <div className="mt-10 grid md:grid-cols-3 gap-8 text-center">
-              <HowItWorksStep
-                step="1"
-                title="Upload & Describe"
-                description="Upload PDF drawings, plans, or just type out the job scope. Our AI gets to work instantly."
-                Icon={UploadIcon}
-              />
-              <HowItWorksStep
-                step="2"
-                title="Review & Send"
-                description="The AI generates a detailed line-item quote using your rates and live material costs. Adjust anything you need, then send it."
-                Icon={WandIcon}
-              />
-              <HowItWorksStep
-                step="3"
-                title="Manage & Get Paid"
-                description="Once approved, schedule the job, track progress with the site diary, and get paid faster with online payment links."
-                Icon={CalendarIcon}
-              />
-            </div>
-        </Container>
-      </section>
+      {/* How It Works / Video Section */}
+      <section id="how-it-works" className="scroll-mt-24 py-12 md:py-24 bg-gray-50">
+        <Container className="text-center">
+          <h2 className="text-3xl font-bold">See {BRAND.name} in action</h2>
+          <p className="mt-2 text-lg text-gray-700 max-w-2xl mx-auto">
+            Watch this quick demo to see how you can quote jobs, manage your team, and get paid faster.
+          </p>
+          <div className="mt-8 relative max-w-4xl mx-auto rounded-2xl border shadow-xl overflow-hidden group">
+            <div className="aspect-video bg-gray-900 relative">
+              <img
+                src="https://placehold.co/1280x720/111827/e0e7ff?text=Demo+Video"
+                alt="TradePricer demo video thumbnail"
+                className="absolute top-0 left-0 w-full h-full object-cover"
+            	/>
+              <button className="absolute inset-0 flex items-center justify-center w-full h-full">
+                <div className="bg-white/20 p-5 rounded-full backdrop-blur-sm transition-transform group-hover:scale-110">
+                  <svg className="h-12 w-12 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </div>
+              </button>
+            </div>
+          </div>
+        </Container>
+      </section>
 
+      {/* Detailed Features Section */}
+      <section id="features" className="scroll-mt-24 py-12 md:py-16">
+        <Container>
+          <div className="text-center">
+            <h2 className="text-3xl font-bold">Everything you need to run your business</h2>
+            <p className="text-gray-700 mt-2 max-w-3xl mx-auto">
+              Stop juggling multiple apps and endless paperwork. TradePricer gives you all the tools to streamline your workflow.
+            </p>
+          </div>
+          <div className="mt-16 space-y-24">
+            <DetailedFeature
+              title="Instant, accurate quotes"
+              text="Our AI Job Pricer uses your staff day rates and realistic material costs to generate a professional, line-item quote in seconds. Upload a PDF or just describe the job."
+              img="https://placehold.co/1200x900/e0e7ff/334155?text=AI+Quoting"
+              benefits={["Save hours on every quote", "Live margin and profit tracking", "Win more jobs with professional PDFs"]}
+              align="right"
+            />
+            <DetailedFeature
+              title="Effortless job management"
+              text="From scheduling your team to logging site progress, TradePricer keeps you organised. The Smart Site Diary and customer portal keep everyone in the loop."
+              img="https://placehold.co/1200x900/dbeafe/334155?text=Scheduling"
+              benefits={["Drag-and-drop scheduling", "Automated reminders via SMS/email", "Dispute-ready records with photos & weather"]}
+              align="left"
+            />
+            <DetailedFeature
+              title="Streamlined finances"
+              text="No more chasing payments. Send professional invoices with online payment links and take deposits instantly. Track profitability and export data to your accounting software."
+              img="https://placehold.co/1200x900/bfdbfe/334155?text=Invoicing"
+              benefits={["Accept online deposits and payments", "Integrates with Stripe & Open Banking", "Export to Xero or QuickBooks"]}
+              align="right"
+            />
+          </div>
+        </Container>
+      </section>
 
-      {/* REVISED: Features section with more benefit-driven text */}
-      <section id="features" className="scroll-mt-24">
-        <Container className="py-12 md:py-16">
-          <h2 className="text-3xl font-bold text-center">A Smarter Way to Run Your Business</h2>
-          <p className="text-gray-700 text-center mt-2">One platform to quote, schedule, communicate, and get paid.</p>
+      {/* Testimonials Section */}
+      <section id="testimonials" className="scroll-mt-24 py-12 md:py-16 bg-blue-50">
+        <Container className="text-center">
+          <h2 className="text-3xl font-bold">Don't just take our word for it</h2>
+          <div className="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <Testimonial
+              quote="The AI quoting is a game-changer. I used to spend entire evenings on quotes. Now I get them done in minutes."
+              name="John D."
+              title="Electrical Contractor"
+            />
+            <Testimonial
+              quote="Our team is so much more organised. We've gone from messy WhatsApp groups to a single, clear schedule."
+              name="Sarah P."
+              title="Plumber & Heating Engineer"
+            />
+            <Testimonial
+              quote="Getting deposits online has completely changed our cash flow. Plus, the customer portal makes us look so professional."
+              name="Mark T."
+              title="General Builder"
+            />
+          </div>
+        </Container>
+      </section>
 
-          <div className="mt-10 grid lg:grid-cols-3 gap-6">
-            <Feature
-              title="Stop Under-Quoting"
-              text="Our AI Job Pricer turns drawings and briefs into profitable, line-item quotes. It uses your staff wages and live material prices so you're always protected."
-              img="/screen-quote.png"
-            />
-            <Feature
-              title="End Disputes Before They Start"
-              text="The Smart Site Diary creates an indisputable record of your work. Log labour, notes, and photos with automatic local weather data. Export a dispute-ready PDF in seconds."
-              img="/screen-diary.png"
-            />
-            <Feature
-              title="Look Professional & Stay Compliant"
-              text="Issue digital Gas Safe, Electrical, and custom certificates. Capture client e-signatures on-site and send branded PDFs instantly."
-              img="/screen-cert.png"
-            />
-          </div>
+      {/* Pricing Section */}
+      <section id="pricing" className="scroll-mt-24">
+        <Container className="py-12 md:py-16">
+          <h2 className="text-3xl font-bold text-center">Simple monthly pricing</h2>
+          <p className="text-gray-700 text-center mt-2">Prices are per company per month. VAT not included.</p>
+          <div className="mt-8 grid lg:grid-cols-3 gap-6 items-start">
+            <Plan
+              name="Free"
+              price="£0"
+              badge="For sole traders"
+              cta={{ label: "Start free", href: `https://${BRAND.app}/Signup` }}
+              features={["1 user", "3 active jobs", "10 quotes & 10 invoices/mo", "3 certificates/mo", "AI Job Pricer (3 runs/mo)", "1 GB storage", "Basic customer portal"]}
+            />
+            <Plan
+              name="Pro"
+              price="£19"
+              badge="For small teams"
+              highlight
+              cta={{ label: "Upgrade now", href: `https://${BRAND.app}/Billing` }}
+              features={["3 users included", "Unlimited jobs & quotes", "30 certificates/mo", "AI Job Pricer (100 runs/mo)", "50 GB storage", "Branded portal & deposits", "Stripe & Open Banking", "Xero/QuickBooks export", "Scheduling & checklists"]}
+            />
+            <Plan
+              name="Premium"
+              price="£39"
+              badge="For growing firms"
+              cta={{ label: "Book demo", href: `/contact` }}
+              features={["10 users included", "Everything in Pro", "Unlimited certificates", "AI Job Pricer (500 runs/mo)", "200 GB storage", "Live Xero/QuickBooks sync", "Asset register & reminders", "Advanced RAMS library", "Priority support"]}
+              footnote="Annual billing gives 2 months free"
+            />
+          </div>
+        </Container>
+      </section>
+      
+      {/* FAQ Section */}
+      <section id="faq" className="scroll-mt-24 bg-gray-50">
+        <Container className="py-12 md:py-16 max-w-4xl">
+          <h2 className="text-3xl font-bold text-center">Frequently asked questions</h2>
+          <div className="mt-8 space-y-4">
+            <Faq q="Is there a free plan?" a="Yes. The Free plan is perfect for getting started. You can use it with some limits and upgrade any time." />
+            <Faq q="Does the AI use my own staff wages?" a="Yes. You can add your staff in Settings with their day rates, and the AI will use your rates to calculate labour costs." />
+            <Faq q="Can I take deposits online?" a="Yes. The Pro and Premium plans include Stripe and Open Banking links on quotes and invoices so you can get paid faster." />
+            <Faq q="Do you integrate with accounting software?" a="The Pro plan can export data to Xero or QuickBooks. The Premium plan offers a live, two-way sync." />
+          </div>
+        </Container>
+      </section>
 
-          <div className="mt-6 grid lg:grid-cols-3 gap-6">
-            <Feature
-              title="Give Clients a Premium Experience"
-              text="Let customers view and accept quotes, pay deposits, and see progress photos in their own private portal. Automatically request Google or Trustpilot reviews on completion."
-              img="/screen-portal.png"
-            />
-            <Feature
-              title="End the Scheduling Chaos"
-              text="Our drag-and-drop calendar makes scheduling jobs and assigning staff simple. Send automatic SMS or email reminders to clients and keep the whole team in sync."
-              img="/screen-schedule.png"
-            />
-            <Feature
-              title="Know Your Numbers, Instantly"
-              text="Track your projected vs. actual profit on every job. See your company's financial health at a glance and export everything to Xero or QuickBooks."
-              img="/screen-report.png"
-            />
-          </div>
-        </Container>
-      </section>
+      {/* Pre-footer CTA */}
+      <section className="py-12 md:py-16 bg-blue-600 text-white">
+        <Container className="text-center">
+          <h2 className="text-3xl font-bold">Ready to take control of your business?</h2>
+          <p className="mt-2 text-lg text-blue-100 max-w-2xl mx-auto">
+            Stop wasting time on paperwork and start winning more jobs. Join hundreds of tradespeople streamlining their workflow.
+          </p>
+          <a className="mt-6 inline-block px-8 py-3 rounded-lg bg-white text-blue-600 font-semibold hover:bg-gray-100 transition-colors" href={`https://${BRAND.app}/Signup`}>
+            Start your free trial
+          </a>
+        </Container>
+      </section>
 
-      {/* Screens grid (largely unchanged, it's a good section) */}
-      <section id="screens" className="scroll-mt-24 bg-gray-50 border-y">
-        <Container className="py-12 md:py-16">
-          <h3 className="text-2xl font-bold">A Look Inside</h3>
-          <p className="text-gray-700 mt-1">Clean, simple, and powerful workflows designed for the trades.</p>
-          <div className="mt-6 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <Shot title="Quote builder with margin" src="/screen-quote.png" />
-            <Shot title="Site diary with weather" src="/screen-diary.png" />
-            <Shot title="Certificates and signatures" src="/screen-cert.png" />
-            <Shot title="Customer portal" src="/screen-portal.png" />
-            <Shot title="Schedule jobs and staff" src="/screen-schedule.png" />
-            <Shot title="Reports and exports" src="/screen-report.png" />
-          </div>
-        </Container>
-      </section>
-
-      {/* REVISED: Pricing section with checkmark icons for better readability */}
-      <section id="pricing" className="scroll-mt-24">
-        <Container className="py-12 md:py-16">
-          <h2 className="text-3xl font-bold text-center">Simple, transparent pricing</h2>
-          <p className="text-gray-700 text-center mt-2">Start for free, upgrade when you're ready. All plans are per company, per month (ex. VAT).</p>
-          <div className="mt-8 grid lg:grid-cols-3 gap-6 items-start">
-            <Plan
-              name="Free"
-              price="£0"
-              badge="For getting started"
-              cta={{ label: "Start free", href: `https://${BRAND.app}/Signup` }}
-              features={[
-                "1 user",
-                "3 active jobs",
-                "10 quotes / 10 invoices per month",
-                "3 certificates per month",
-                "AI Job Pricer (3 runs per month)",
-                "Basic customer portal",
-                "1 GB storage",
-                "Watermark on PDFs"
-              ]}
-            />
-            <Plan
-              name="Pro"
-              price="£19"
-              badge="Most popular"
-              highlight
-              cta={{ label: "Start Pro Trial", href: `https://${BRAND.app}/Billing` }}
-              features={[
-                "3 users included (£4/extra)",
-                "Unlimited jobs, quotes & invoices",
-                "30 certificates per month",
-                "AI Job Pricer (100 runs per month)",
-                "Branded portal with online payments",
-                "Google & Trustpilot review booster",
-                "Xero or QuickBooks export",
-                "Scheduling & reminders",
-                "50 GB storage, no watermarks",
-              ]}
-            />
-            <Plan
-              name="Premium"
-              price="£39"
-              badge="For growing firms"
-              cta={{ label: "Book a Demo", href: `/contact` }}
-              features={[
-                "10 users included (£4/extra)",
-                "Everything in Pro, plus:",
-                "Unlimited certificates",
-                "AI Job Pricer (500 runs per month)",
-                "Live sync with Xero or QuickBooks",
-                "Custom domain for customer portal",
-                "Asset register with service reminders",
-                "Advanced RAMS/COSHH library",
-                "Priority support",
-              ]}
-              footnote="Save with annual billing (2 months free)"
-            />
-          </div>
-        </Container>
-      </section>
-
-      {/* REVISED: FAQ section with more questions */}
-      <section id="faq" className="scroll-mt-24">
-        <Container className="py-12 md:py-16 max-w-4xl">
-          <h2 className="text-3xl font-bold text-center">Frequently Asked Questions</h2>
-          <div className="mt-6 space-y-4">
-            <Faq q="Is there a free plan?" a="Yes! The Free plan is perfect for sole traders or anyone wanting to try out the core features. You can upgrade any time without losing your data." />
-            <Faq q="How does the AI Job Pricer actually work?" a="You upload a PDF or describe the job. Our AI reads the document, identifies the scope (e.g., 'install 5 double sockets'), and breaks it down into labour and materials. It uses your preset staff wages and live material prices from major UK suppliers to build an accurate quote." />
-            <Faq q="Can I take deposits online?" a="Yes. The Pro and Premium plans integrate with Stripe and Open Banking. You can add a payment link directly to your quotes and invoices to take deposits or full payments online." />
-            <Faq q="What trades is this designed for?" a="TradePricer is built for a wide range of trades, including electrical, plumbing, heating, plastering, roofing, landscaping, construction, and more. The certificate and materials libraries are customizable for your specific trade." />
-            <Faq q="Do you integrate with accounting software?" a="Yes. The Pro plan allows you to export data in a format compatible with Xero and QuickBooks. The Premium plan offers a live, two-way sync to keep your books updated automatically." />
-            <Faq q="Is my and my customer's data secure?" a="Absolutely. We use industry-standard security practices, including encryption for data at rest and in transit. Your data is stored securely on servers within the UK." />
-          </div>
-        </Container>
-      </section>
-
-      {/* Footer (largely unchanged, it's good) */}
-      <footer className="border-t bg-white">
-        <Container className="py-8 text-sm text-gray-600 grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Branding */}
-          <div className="flex items-start gap-2">
-            <Image src="/logo-32.png" alt="TradePricer logo" width={20} height={20} className="mt-0.5" />
-            <div>
-              <p className="font-semibold text-gray-800">{BRAND.name}</p>
-              <p className="mt-1">© {new Date().getFullYear()}. All rights reserved.</p>
-              <p className="mt-1 text-gray-500">Smart quoting and job management for trades.</p>
-            </div>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h3 className="text-gray-800 font-semibold mb-3">Quick links</h3>
-            <ul className="space-y-2">
-              <li><Link href="/privacy" className="hover:text-gray-900">Privacy Policy</Link></li>
-              <li><Link href="/terms" className="hover:text-gray-900">Terms of Service</Link></li>
-              <li><Link href="/contact" className="hover:text-gray-900">Contact</Link></li>
-            </ul>
-          </div>
-
-          {/* Contact info */}
-          <div>
-            <h3 className="text-gray-800 font-semibold mb-3">Contact</h3>
-            <p>Email: <a className="text-blue-600 hover:text-blue-700" href="mailto:hello@tradepricer.ai">hello@tradepricer.ai</a></p>
-            <p className="mt-1">Phone: Coming soon</p>
-          </div>
-        </Container>
-      </footer>
-    </main>
-  );
+      {/* Footer */}
+      <footer className="border-t bg-white">
+        <Container className="py-8 text-sm text-gray-600 grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="flex items-start gap-2">
+            <img src="https://placehold.co/20x20/3b82f6/white?text=TP" alt="TradePricer logo" width={20} height={20} className="rounded-sm" />
+            <div>
+              <p className="font-semibold text-gray-800">© {new Date().getFullYear()} {BRAND.name}</p>
+              <p className="mt-1 text-gray-500">Smart quoting and job management for trades.</p>
+            </div>
+          </div>
+          <div>
+            <h3 className="text-gray-800 font-semibold mb-3">Quick links</h3>
+            <ul className="space-y-2">
+              <li><a href="/privacy" className="hover:text-gray-900">Privacy Policy</a></li>
+              <li><a href="/terms" className="hover:text-gray-900">Terms of Service</a></li>
+              <li><a href="/contact" className="hover:text-gray-900">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-gray-800 font-semibold mb-3">Contact</h3>
+            <p>Email: <a className="text-blue-600 hover:text-blue-700" href="mailto:email@tradepricer.ai">email@tradepricer.ai</a></p>
+            <p className="mt-1">Phone: Coming soon</p>
+          </div>
+        </Container>
+      </footer>
+    </main>
+  );
 }
 
+/* Helper Components */
 
-/* --- NEW & UPDATED COMPONENTS --- */
-
-// A simple sparkle icon for the "New Feature" badge
-function SparkleIcon() {
-    return <svg className="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.898 20.622L16.125 21.75l-.773-1.128a2.25 2.25 0 00-1.465-1.465L12.75 18.75l1.128-.773a2.25 2.25 0 001.465-1.465L16.125 15l.773 1.128a2.25 2.25 0 001.466 1.465l1.127.773-1.127.773a2.25 2.25 0 00-1.466 1.465z" /></svg>
+function Check() {
+  return (
+    <svg className="mt-1 h-5 w-5 text-blue-600 shrink-0" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+    </svg>
+  );
 }
 
-// Check icon (updated to be more reusable)
-function Check({ className = "h-5 w-5 text-green-600" }: { className?: string }) {
-  return (
-    <svg className={`shrink-0 ${className}`} viewBox="0 0 20 20" fill="currentColor" aria-hidden>
-      <path fillRule="evenodd" d="M16.704 5.29a1 1 0 0 1 .006 1.414l-7.25 7.333a1 1 0 0 1-1.44.01L3.29 9.6a1 1 0 1 1 1.42-1.408l3.044 3.072 6.53-6.6a1 1 0 0 1 1.42.026z" clipRule="evenodd"/>
-    </svg>
-  );
+function DetailedFeature({ title, text, img, benefits, align }: { title: string; text: string; img: string; benefits: string[]; align: "left" | "right" }) {
+  const content = (
+    <div>
+      <h3 className="text-3xl font-bold">{title}</h3>
+      <p className="mt-4 text-lg text-gray-700">{text}</p>
+      <ul className="mt-6 space-y-3 text-gray-700">
+        {benefits.map((b, i) => (
+          <li key={i} className="flex gap-3 items-start">
+            <Check />
+            <span>{b}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+
+  const image = (
+    <div className="relative rounded-2xl border bg-white shadow-lg overflow-hidden">
+      <img src={img} alt={title} width={1200} height={900} className="w-full h-auto" />
+    </div>
+  );
+  
+  const orderClass = align === 'left' ? 'md:col-start-2' : '';
+  const imageOrderClass = align === 'left' ? 'md:col-start-1 md:row-start-1' : '';
+
+  return (
+    <div className="grid md:grid-cols-2 gap-12 items-center">
+      <div className={orderClass}>{content}</div>
+      <div className={imageOrderClass}>{image}</div>
+    </div>
+  );
 }
 
-// How it works step icons
-function UploadIcon() { return <svg className="w-8 h-8 mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M12 16.5V9.75m0 0l-3.75 3.75M12 9.75l3.75 3.75M3 17.25V6.75A2.25 2.25 0 015.25 4.5h13.5A2.25 2.25 0 0121 6.75v10.5A2.25 2.25 0 0118.75 19.5H5.25A2.25 2.25 0 013 17.25z" /></svg>; }
-function WandIcon() { return <svg className="w-8 h-8 mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c.251.023.501.05.75.082a.75.75 0 01.75.75v5.714a2.25 2.25 0 00.659 1.591L14.25 14.5M14.25 14.5h5.25m-5.25 0l-1.06-1.06a2.25 2.25 0 010-3.182l5.25-5.25a2.25 2.25 0 013.182 0l1.06 1.06a2.25 2.25 0 010 3.182l-5.25 5.25a2.25 2.25 0 01-3.182 0z" /></svg>; }
-function CalendarIcon() { return <svg className="w-8 h-8 mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0h18M-4.5 12h22.5" /></svg>; }
-
-// NEW: HowItWorksStep component
-function HowItWorksStep({ step, title, description, Icon }: { step: string, title: string, description: string, Icon: () => JSX.Element }) {
-  return (
-    <div>
-        <div className="flex items-center justify-center w-16 h-16 mx-auto bg-blue-100 text-blue-600 rounded-full font-bold text-2xl">
-          {step}
-        </div>
-        <h3 className="font-bold text-lg mt-4">{title}</h3>
-        <p className="mt-1 text-gray-700 text-sm">{description}</p>
-    </div>
-  )
+function Testimonial({ quote, name, title }: { quote: string; name: string; title: string }) {
+  return (
+    <div className="bg-white p-6 rounded-2xl border shadow-sm flex flex-col items-center text-center">
+      <StarRating />
+      <blockquote className="mt-4 text-gray-700 italic">"{quote}"</blockquote>
+      <p className="mt-4 font-semibold text-gray-900">{name}</p>
+      <p className="text-sm text-gray-500">{title}</p>
+    </div>
+  );
 }
 
-// NEW: Testimonial component
-function Testimonial({ quote, name, title }: { quote: string; name: string; title: string; }) {
-  return (
-    <div className="rounded-2xl border bg-white p-6 shadow-sm">
-      <p className="text-gray-800">"{quote}"</p>
-      <div className="mt-4 pt-4 border-t">
-        <p className="font-semibold">{name}</p>
-        <p className="text-sm text-gray-500">{title}</p>
-      </div>
-    </div>
-  );
+function StarRating() {
+  return (
+    <div className="flex items-center gap-0.5 text-yellow-400">
+      {[...Array(5)].map((_, i) => (
+        <svg key={i} className="h-5 w-5 fill-current" viewBox="0 0 24 24">
+          <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+        </svg>
+      ))}
+    </div>
+  );
 }
 
-function Feature({ title, text, img }: { title: string; text: string; img: string }) {
-  return (
-    <div className="rounded-2xl border bg-white shadow-sm overflow-hidden flex flex-col">
-      <div className="aspect-[16/10] bg-gray-100">
-        <Image src={img} alt={title} width={1200} height={750} className="w-full h-full object-cover" />
-      </div>
-      <div className="p-5 flex-grow">
-        <h3 className="font-semibold text-lg">{title}</h3>
-        <p className="mt-1 text-gray-700 text-sm">{text}</p>
-      </div>
-    </div>
-  );
-}
-
-function Shot({ title, src }: { title: string; src: string }) {
-  return (
-    <figure className="rounded-2xl border bg-white shadow-sm overflow-hidden">
-      <Image src={src} alt={title} width={1200} height={750} className="w-full h-auto" />
-      <figcaption className="px-4 py-2 text-sm text-gray-700 border-t">{title}</figcaption>
-    </figure>
-  );
-}
-
-// UPDATED: Plan component using Check icons
-function Plan(props: {
-  name: string; price: string; badge?: string; footnote?: string;
-  features: string[]; cta: { label: string; href: string }; highlight?: boolean;
-}) {
-  const { name, price, badge, features, cta, highlight, footnote } = props;
-  return (
-    <div className={`rounded-2xl border bg-white p-6 shadow-sm flex flex-col ${highlight ? "ring-2 ring-blue-600" : ""}`}>
-      <div className="flex items-center justify-between">
-        <h3 className="text-lg font-semibold">{name}</h3>
-        {badge ? <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${highlight ? 'bg-blue-600 text-white' : 'bg-blue-50 text-blue-700'}`}>{badge}</span> : null}
-      </div>
-      <div className="mt-2 text-3xl font-bold">
-        {price}<span className="text-base font-normal text-gray-500">/mo</span>
-      </div>
-      <ul className="mt-4 space-y-3 text-sm text-gray-700 flex-grow">
-        {features.map((f, i) => (
-          <li key={i} className="flex gap-2.5">
-            <Check className="mt-0.5 h-5 w-5 text-blue-600" />
-            <span>{f}</span>
-          </li>
-        ))}
-      </ul>
-      <a className={`mt-6 inline-flex w-full items-center justify-center rounded-lg px-4 py-2 font-semibold ${highlight ? "bg-blue-600 text-white hover:bg-blue-700" : "border hover:bg-gray-50"}`} href={cta.href}>
-        {cta.label}
-      </a>
-      {footnote ? <p className="mt-3 text-xs text-gray-500 text-center">{footnote}</p> : null}
-    </div>
-  );
+function Plan(props: { name: string; price: string; badge?: string; footnote?: string; features: string[]; cta: { label: string; href: string }; highlight?: boolean; }) {
+  const { name, price, badge, features, cta, highlight, footnote } = props;
+  return (
+    <div className={`rounded-2xl border bg-white p-6 shadow-sm flex flex-col ${highlight ? "ring-2 ring-blue-600" : ""}`}>
+      <div className="flex items-center justify-between">
+        <h3 className="text-lg font-semibold">{name}</h3>
+        {badge && <span className="text-xs px-2 py-1 rounded-full bg-blue-50 text-blue-700 font-medium">{badge}</span>}
+      </div>
+      <div className="mt-2">
+        <span className="text-3xl font-bold">{price}</span>
+        <span className="text-base font-normal text-gray-500">/mo</span>
+      </div>
+      <a className={`mt-5 w-full text-center rounded-lg px-4 py-2 ${highlight ? "bg-blue-600 text-white hover:bg-blue-700" : "border hover:bg-gray-50"} transition-colors`} href={cta.href}>
+        {cta.label}
+      </a>
+      <ul className="mt-5 space-y-3 text-sm text-gray-700 flex-grow">
+        {features.map((f, i) => (
+          <li key={i} className="flex gap-2">
+            <span className="text-blue-600">•</span><span>{f}</span>
+          </li>
+        ))}
+      </ul>
+      {footnote && <p className="mt-4 text-xs text-gray-500 text-center">{footnote}</p>}
+    </div>
+  );
 }
 
 function Faq({ q, a }: { q: string; a: string }) {
-  return (
-    <details className="rounded-2xl border bg-white p-4 shadow-sm group">
-      <summary className="cursor-pointer font-medium list-none flex items-center justify-between">
-        {q}
-        <svg className="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
-      </summary>
-      <p className="mt-3 text-sm text-gray-700 leading-relaxed">{a}</p>
-    </details>
-  );
+  return (
+    <details className="rounded-xl border bg-white p-4 shadow-sm group">
+      <summary className="cursor-pointer font-medium flex justify-between items-center">
+        {q}
+        <svg className="h-5 w-5 text-gray-500 transition-transform duration-200 group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+        </svg>
+      </summary>
+      <p className="mt-2 text-sm text-gray-700">{a}</p>
+    </details>
+  );
 }
