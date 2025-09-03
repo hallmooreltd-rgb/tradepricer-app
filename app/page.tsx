@@ -44,7 +44,7 @@ export default function HomePage() {
 
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-50 to-indigo-50">
-        <Container className="py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center">
+        <Container className="py-20 md:py-28 grid md:grid-cols-2 gap-12 items-center">
           <div>
             <div className="inline-flex items-center gap-2 rounded-full bg-blue-100 px-3 py-1 text-blue-800 text-sm font-medium">
               New: AI quotes from drawings
@@ -82,7 +82,7 @@ export default function HomePage() {
 
       {/* Social Proof Bar */}
       <section>
-        <Container className="py-8">
+        <Container className="py-12">
           <div className="text-center">
             <p className="text-lg text-gray-700">
               Built for trades: <span className="font-semibold text-gray-900">plumbing, heating, electrical, plastering, roofing, landscaping</span> and more.
@@ -92,13 +92,13 @@ export default function HomePage() {
       </section>
 
       {/* How It Works / Video Section */}
-      <section id="how-it-works" className="scroll-mt-24 py-12 md:py-24 bg-gray-50">
+      <section id="how-it-works" className="scroll-mt-24 py-16 md:py-24 bg-gray-50">
         <Container className="text-center">
           <h2 className="text-3xl font-bold">See {BRAND.name} in action</h2>
           <p className="mt-2 text-lg text-gray-700 max-w-2xl mx-auto">
             Watch this quick demo to see how you can quote jobs, manage your team, and get paid faster.
           </p>
-          <div className="mt-8 relative max-w-4xl mx-auto rounded-2xl border shadow-xl overflow-hidden group">
+          <div className="mt-10 relative max-w-4xl mx-auto rounded-2xl border shadow-xl overflow-hidden group">
             <div className="aspect-video bg-gray-900 relative">
               <img
                 src="https://placehold.co/1280x720/111827/e0e7ff?text=Demo+Video"
@@ -111,18 +111,18 @@ export default function HomePage() {
                     <path d="M8 5v14l11-7z" />
                   </svg>
                 </div>
-              </button>
+            	</button>
             </div>
           </div>
         </Container>
       </section>
 
       {/* Detailed Features Section */}
-      <section id="features" className="scroll-mt-24 py-12 md:py-16">
+      <section id="features" className="scroll-mt-24 py-16 md:py-24">
         <Container>
-          <div className="text-center">
+          <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl font-bold">Everything you need to run your business</h2>
-            <p className="text-gray-700 mt-2 max-w-3xl mx-auto">
+            <p className="text-gray-700 mt-2">
               Stop juggling multiple apps and endless paperwork. TradePricer gives you all the tools to streamline your workflow.
             </p>
           </div>
@@ -153,10 +153,10 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials Section */}
-      <section id="testimonials" className="scroll-mt-24 py-12 md:py-16 bg-blue-50">
+      <section id="testimonials" className="scroll-mt-24 py-16 md:py-24 bg-blue-50">
         <Container className="text-center">
           <h2 className="text-3xl font-bold">Don't just take our word for it</h2>
-          <div className="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <Testimonial
               quote="The AI quoting is a game-changer. I used to spend entire evenings on quotes. Now I get them done in minutes."
               name="John D."
@@ -178,10 +178,10 @@ export default function HomePage() {
 
       {/* Pricing Section */}
       <section id="pricing" className="scroll-mt-24">
-        <Container className="py-12 md:py-16">
+        <Container className="py-16 md:py-24">
           <h2 className="text-3xl font-bold text-center">Simple monthly pricing</h2>
           <p className="text-gray-700 text-center mt-2">Prices are per company per month. VAT not included.</p>
-          <div className="mt-8 grid lg:grid-cols-3 gap-6 items-start">
+          <div className="mt-10 grid lg:grid-cols-3 gap-8 items-start">
             <Plan
               name="Free"
               price="£0"
@@ -211,9 +211,9 @@ export default function HomePage() {
       
       {/* FAQ Section */}
       <section id="faq" className="scroll-mt-24 bg-gray-50">
-        <Container className="py-12 md:py-16 max-w-4xl">
+        <Container className="py-16 md:py-24 max-w-4xl">
           <h2 className="text-3xl font-bold text-center">Frequently asked questions</h2>
-          <div className="mt-8 space-y-4">
+          <div className="mt-10 space-y-4">
             <Faq q="Is there a free plan?" a="Yes. The Free plan is perfect for getting started. You can use it with some limits and upgrade any time." />
             <Faq q="Does the AI use my own staff wages?" a="Yes. You can add your staff in Settings with their day rates, and the AI will use your rates to calculate labour costs." />
             <Faq q="Can I take deposits online?" a="Yes. The Pro and Premium plans include Stripe and Open Banking links on quotes and invoices so you can get paid faster." />
@@ -223,13 +223,13 @@ export default function HomePage() {
       </section>
 
       {/* Pre-footer CTA */}
-      <section className="py-12 md:py-16 bg-blue-600 text-white">
+      <section className="py-16 md:py-24 bg-blue-600 text-white">
         <Container className="text-center">
           <h2 className="text-3xl font-bold">Ready to take control of your business?</h2>
           <p className="mt-2 text-lg text-blue-100 max-w-2xl mx-auto">
             Stop wasting time on paperwork and start winning more jobs. Join hundreds of tradespeople streamlining their workflow.
           </p>
-          <a className="mt-6 inline-block px-8 py-3 rounded-lg bg-white text-blue-600 font-semibold hover:bg-gray-100 transition-colors" href={`https://${BRAND.app}/Signup`}>
+          <a className="mt-8 inline-block px-8 py-3 rounded-lg bg-white text-blue-600 font-semibold hover:bg-gray-100 transition-colors" href={`https://${BRAND.app}/Signup`}>
             Start your free trial
           </a>
         </Container>
@@ -237,9 +237,9 @@ export default function HomePage() {
 
       {/* Footer */}
       <footer className="border-t bg-white">
-        <Container className="py-8 text-sm text-gray-600 grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="flex items-start gap-2">
-            <img src="https://placehold.co/20x20/3b82f6/white?text=TP" alt="TradePricer logo" width={20} height={20} className="rounded-sm" />
+        <Container className="py-10 text-sm text-gray-600 grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="flex items-start gap-3">
+            <img src="https://placehold.co/24x24/3b82f6/white?text=TP" alt="TradePricer logo" width={24} height={24} className="rounded-md mt-0.5" />
             <div>
               <p className="font-semibold text-gray-800">© {new Date().getFullYear()} {BRAND.name}</p>
               <p className="mt-1 text-gray-500">Smart quoting and job management for trades.</p>
@@ -296,13 +296,10 @@ function DetailedFeature({ title, text, img, benefits, align }: { title: string;
     </div>
   );
   
-  const orderClass = align === 'left' ? 'md:col-start-2' : '';
-  const imageOrderClass = align === 'left' ? 'md:col-start-1 md:row-start-1' : '';
-
   return (
     <div className="grid md:grid-cols-2 gap-12 items-center">
-      <div className={orderClass}>{content}</div>
-      <div className={imageOrderClass}>{image}</div>
+      <div className={align === 'left' ? 'md:order-2' : ''}>{content}</div>
+      <div>{image}</div>
     </div>
   );
 }
